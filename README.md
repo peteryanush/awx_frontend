@@ -1,1 +1,1 @@
-# awx_frontend
+# awx_workflow

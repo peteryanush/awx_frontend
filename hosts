@@ -1,0 +1,100 @@
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+[gcp]
+map_server_gcp ansible_host=35.205.171.224
+
+[aws_prod]
+
+shared01.dragonforce.us ansible_host=52.222.109.113	
+icas.dragonforce.us ansible_host=96.127.82.5	
+fredericksburg.dragonforce.us ansible_host=52.61.25.39
+shared02.dragonforce.us ansible_host=96.127.52.189
+montgomeryal.dragonforce.us ansible_host=96.127.106.79
+york.dragonforce.us ansible_host=52.222.112.161
+okaloosa.dragonforce.us ansible_host=52.222.71.80
+codetf.dragonforce.us ansible_host=52.61.0.195
+montcopa.dragonforce.us ansible_host=96.127.61.251
+consec.dragonforce.us ansible_host=52.62.73.224
+[aws_stg]
+dnp_gov ansible_host=18.253.83.143
+www.drakontas.com ansible_host=34.199.50.56
+
+[aws_dev]
+
+dragon-doc.drakontas.com ansible_host=54.83.60.178
+tradeshow.drakontas.com ansible_host=34.207.175.123
+dnpsandbox.drakontas.com ansible_host=3.208.45.189
+consec-test.drakontas.com  ansible_host=35.153.185.206 ansible_user=centos
+test2.drakontas.com ansible_host=54.224.243.218
+azdps.drakontas.com ansible_host=184.72.149.15
+keymaster.drakontas.com ansible_host=54.173.229.188
+demo35.drakontas.com ansible_host=52.91.137.49
+dnpdemo.drakontas.com ansible_host=3.82.87.240
+dnptest.drakontas.com ansible_host=54.81.196.241
+demo.drakontas.com ansible_host=107.22.225.57
+logstash.drakontas.com ansible_host=52.3.168.54
+stats.drakontas.com ansible_host=54.173.143.134
+
+[aws_dev_windows]
+
+dfstest ansible_host=54.164.134.54
+adtest.drakontas.com ansible_host=34.195.153.214
+
+[aws_ALL:children]
+aws_prod
+aws_stg
+aws_dev
+
+[dev_TB_site]
+tiebreaker90.drakontas.com ansible_host=192.168.17.90
+
+[dev_APP_site20]
+site20-app1.drakontas.com ansible_host=192.168.17.221
+site20-app2.drakontas.com ansible_host=192.168.17.222
+site20-app3.drakontas.com ansible_host=192.168.17.223
+site20-app4.drakontas.com ansible_host=192.168.17.224
+site20-app5.drakontas.com ansible_host=192.168.17.225
+
+[dev_APP_site30]
+site30-app1.drakontas.com ansible_host=192.168.17.231
+site30-app2.drakontas.com ansible_host=192.168.17.232
+site30-app3.drakontas.com ansible_host=192.168.17.233
+
+[dev_APP]
+
+[dev_DB_site20-30]
+site20-database1.drakontas.com ansible_host=192.168.17.220
+site30-database1.drakontas.com ansible_host=192.168.17.230
+
+[dev_WEB]
+dforce-web.drakontas.com ansible_host=192.168.17.196
+
+[dev_DB]
+
+[dev_TB]
+
+[dev_MAP]
+server_esxi_temp ansible_host=df-template owner=Temp
+map_server_esxi_1    ansible_host=192.168.17.195 owner=Caribbean
+map_server_esxi_2    ansible_host=192.168.17.196 owner=Canada
+map_server_esxi_3    ansible_host=192.168.17.191 owner=test
+
+[dev_ALL:children]
+dev_APP
+dev_DB
+dev_TB
+dev_MAP
+
+[dev_ALL_site:children]
+dev_TB_site
+dev_DB_site20-30
+dev_APP_site20
+dev_APP_site30
