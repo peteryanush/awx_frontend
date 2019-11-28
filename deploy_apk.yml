@@ -1,6 +1,6 @@
 ---
 - name: install WEB server
-  hosts: dforce-web.drakontas.com
+  hosts: all
   become: yes
   vars:
     addr_host: "dforce-web.drakontas.com"
