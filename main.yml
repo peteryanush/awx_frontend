@@ -1,6 +1,6 @@
 ---
 - name: Update instance
-  host: all
+  hosts: all
   become: yes
   
   tasks:
