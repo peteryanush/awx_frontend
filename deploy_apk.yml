@@ -1,0 +1,66 @@
+---
+- name: install WEB server
+  hosts: dforce-web.drakontas.com
+  become: yes
+  vars:
+    addr_host: "dforce-web.drakontas.com"
+    repo_folder: /opt/dfadmin/dforce-web/
+    live_folder: /opt/dfadmin/dforce-web/build/
+    live_host: site20-app1.drakontas.com
+    git_repo: git@github.com:drakontas-llc/dforce-web.git
+
+  pre_tasks:
+  - name: Empty remote directory
+    file:
+      path: /opt/dfadmin/
+      state: absent
+    become: yes
+
+  - name: Create
+    file:
+      path: /opt/dfadmin/dforce-web/
+      state: directory
+      owner: dfadmin
+      group: dfadmin
+      mode: u=rwx,g=rx,o=rx
+    become: yes
+
+  - name: Transfer the script
+    copy:
+      src: ansible
+      dest: /home/dfadmin/.ssh
+      mode: 0600
+    become_user: dfadmin
+
+  - name: Get stuff from git
+    git:
+      repo: "{{ git_repo }}"
+      dest: /opt/dfadmin/dforce-web
+      accept_hostkey: yes
+      key_file: /home/dfadmin/.ssh/ansible
+      version: dev
+    become_user: dfadmin
+
+  - name: Register NodeJS distribution
+    shell: 'curl -sL https://rpm.nodesource.com/setup_10.x | bash -'
+    changed_when: false
+  - name: Install NodeJS
+    become: yes
+    yum:
+     name: nodejs
+     state: latest
+     update_cache: yes
+
+
+  roles:
+    - { role: ocha.yarn }
+
+  post_tasks:
+
+    - name: Install dependencies
+      yarn:
+        path: "{{ repo_folder }}"
+    - name: Build project
+      command: yarn build
+      args:
+        chdir: "{{ repo_folder }}"
