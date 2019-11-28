@@ -53,7 +53,7 @@
 
 
   roles:
-    - { role: ocha.yarn }
+    - { role: yarn }
 
   post_tasks:
 
