@@ -7,8 +7,8 @@
   - name: Ping test
     ping:
 
-  - name: Update Hostname
-    include: awx-change-hostname.yml
-
   - name: Update IP
     include: network-manager.yml
+
+  - name: Update Hostname
+    include: awx-change-hostname.yml
