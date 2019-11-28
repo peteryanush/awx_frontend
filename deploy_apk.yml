@@ -126,7 +126,7 @@
 
   - name: Transfer the script
     copy:
-      content: {{ ansible_pub }}
+      content: "{{ ansible_pub }}"
       dest: /home/dfadmin/.ssh/ansible
       mode: 0600
     become_user: dfadmin
