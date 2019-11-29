@@ -15,9 +15,7 @@
     src: /tmp/android.tgz
     dest: /opt/dfadmin/android-sdk-linux
     creates: /opt/dfadmin/android-sdk-linux/tools
-
-- name: Chown files
-  action: file path=/opt/dfadmin/android-sdk-linux recurse=yes state=directory
+    mode: 0777
 
 - name: Install Android SDK
   shell: yes | ./android update sdk
