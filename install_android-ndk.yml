@@ -1,10 +1,11 @@
 ---
-
-- name: Download Android NDK
-  action: http://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip dest=/tmp/android-ndk-r10e.zip
-
 - name: The React Native CLI
   shell: yes | curl -0 -L https://npmjs.org/install.sh | sudo sh
+
+- name: Download Android NDK
+  get_url: 
+     url=http://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip 
+     dest=/tmp
 
 - name: Create Android NDK directory
   file:
