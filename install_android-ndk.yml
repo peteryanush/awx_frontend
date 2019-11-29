@@ -6,6 +6,7 @@
   get_url: 
      url=http://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip 
      dest=/tmp
+  register: bin_files
 
 - name: Create Android NDK directory
   file:
@@ -13,13 +14,13 @@
     state: directory
 
 - name: Unpack Android NDK
-  become: yes
   unarchive:
     copy: no
     src: /tmp/android-ndk-r10e.zip
-    dest: /opt/dfadmin/android-ndk-r10e
-    creates: /opt/dfadmin/android-sdk-linux/ndk
-    mode: 0777
+    dest: /opt/dfadmin/android-ndk-r10e/ndk
+  with_items:
+  - "{{ bin_files.sdout }}"  
+  
 
 - name: Configure Android SDK paths
   action: lineinfile dest=/home/dfadmin/.bashrc line="{{ item }}"
