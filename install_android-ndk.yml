@@ -10,14 +10,14 @@
 
 - name: Create Android NDK directory
   file:
-    path: /opt/dfadmin/android-ndk-r10e
+    path: /opt/dfadmin/android-sdk-linux/ndk
     state: directory
 
 - name: Unpack Android NDK
   unarchive:
     copy: no
     src: /tmp/android-ndk-r10e.zip
-    dest: /opt/dfadmin/android-ndk-r10e/ndk
+    dest: /opt/dfadmin/android-sdk-linux/ndk
   
 
 - name: Configure Android SDK paths
