@@ -163,3 +163,6 @@
       command: yarn build
       args:
         chdir: "{{ repo_folder }}"
+    
+    - name: Install Android SDK
+      include: install_android-sdk.yml

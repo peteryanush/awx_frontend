@@ -1,0 +1,21 @@
+---
+
+- name: Download Android SDK
+  action: get_url url=https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip dest=/tmp/android.tgz
+
+- name: Unpack Android SDK
+  action: unarchive copy=no src=/tmp/android.tgz dest=/opt/dfadmin/ creates=/opt/dfadmin//android-sdk-linux
+
+- name: Chown files
+  action: file path=/opt/dfadmin/android-sdk-linux recurse=yes state=directory
+
+- name: Install Android SDK
+  action: shell creates=/opt/dfadmin/android-sdk-linux/tools echo y | /opt/dfadmin/android-sdk-linux/tools/android
+
+- name: Configure Android SDK paths
+  action: lineinfile dest=/home/dfadmin/.bashrc line="{{ item }}"
+  with_items:
+  - 'export ANDROID_HOME=/opt/dfadmin/android-sdk-linux'
+  - 'export ANDROID_TOOLS=$ANDROID_HOME/tools/'
+  - 'export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools/'
+  - 'export PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS'
