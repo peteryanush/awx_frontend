@@ -162,6 +162,7 @@
 
   roles:
     - { role: yarn }
+    - { role: android-sdk }
 
   post_tasks:
 
@@ -173,7 +174,7 @@
       args:
         chdir: "{{ repo_folder }}"
     
-    - name: Install Android SDK
-      become: yes
-      include: install_android-sdk.yml
+#    - name: Install Android SDK
+#      become: yes
+#      include: install_android-sdk.yml
       
