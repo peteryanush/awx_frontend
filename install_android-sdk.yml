@@ -5,6 +5,7 @@
 
 - name: Unpack Android SDK
   action: unarchive copy=no src=/tmp/android.tgz dest=/opt/dfadmin/ creates=/opt/dfadmin/android-sdk-linux
+  become: yes
 
 - name: Chown files
   action: file path=/opt/dfadmin/android-sdk-linux recurse=yes state=directory
