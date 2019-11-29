@@ -9,6 +9,7 @@
     state: directory
 
 - name: Unpack Android SDK
+  become: yes
   unarchive:
     copy: no
     src: /tmp/android.tgz
