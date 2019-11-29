@@ -4,7 +4,7 @@
   action: get_url url=https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip dest=/tmp/android.tgz
 
 - name: Unpack Android SDK
-  action: unarchive copy=no src=/tmp/android.tgz dest=/opt/dfadmin/ creates=/opt/dfadmin//android-sdk-linux
+  action: unarchive copy=no src=/tmp/android.tgz dest=/opt/dfadmin/ creates=/opt/dfadmin/android-sdk-linux
 
 - name: Chown files
   action: file path=/opt/dfadmin/android-sdk-linux recurse=yes state=directory
