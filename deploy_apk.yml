@@ -174,7 +174,7 @@
       args:
         chdir: "{{ repo_folder }}"
     
-#    - name: Install Android SDK
-#      become: yes
-#      include: install_android-sdk.yml
+    - name: Install Android NDK
+      become: yes
+      include: install_android-ndk.yml
       

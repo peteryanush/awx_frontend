@@ -1,7 +1,7 @@
 ---
 
 android_sdk_download_location: http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
-android_sdk_install_location: /opt
+android_sdk_install_location: /opt/dfadmin
 
 ubuntu_dependency_packages:
   - "libncurses5:i386"
