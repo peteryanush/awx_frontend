@@ -1,7 +1,7 @@
 ---
 
 - name: Download Android SDK
-  action: get_url url=https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip dest=/tmp/android.tgz
+  action: get_url url=http://dl.google.com/android/android-sdk_r24.2-linux.tgz dest=/tmp/android.tgz
 
 - name: Create Android SDK directory
   file:

@@ -8,6 +8,12 @@
     live_folder: /opt/dfadmin/dforce-web/build/
     live_host: site20-app1.drakontas.com
     git_repo: git@github.com:drakontas-llc/dforce-web.git
+    download_url: http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
+    download_folder: /tmp
+    java_version_path: jdk1.8.0_131
+    java_version_path_short: jdk-8u131
+    java_name: "{{download_folder}}/{{java_version_path}}"
+    java_archive: "{{download_folder}}/{{java_version_path_short}}-linux-x64.tar.gz"
     ansible_pub: !vault |
             $ANSIBLE_VAULT;1.1;AES256
             34616433376532306166643736393239373535656237653934306261373031386132303734333162
@@ -149,6 +155,9 @@
      name: nodejs
      state: latest
      update_cache: yes
+  
+  - name: Install Java 8
+    include: install_java-8.yml
 
 
   roles:
