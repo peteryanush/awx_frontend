@@ -18,8 +18,6 @@
     copy: no
     src: /tmp/android-ndk-r10e.zip
     dest: /opt/dfadmin/android-ndk-r10e/ndk
-  with_items:
-  - "{{ bin_files.stdout }}"  
   
 
 - name: Configure Android SDK paths
