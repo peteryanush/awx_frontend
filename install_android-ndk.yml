@@ -8,9 +8,6 @@
      dest=/tmp
   register: bin_files
 
-- name: Raname zip file
-  command: "mv /tmp/android-ndk-r10e-darwin-x86_64.zip /tmp/ndk.zip"
-
 - name: Install unzip
   yum:
     name: unzip
@@ -22,7 +19,10 @@
     state: directory
 
 - name: Unpack Android NDK
-  command: "unzip /tmp/ndk.zip -d /opt/dfadmin"
+  command: "unzip /tmp/android-ndk-r10e-darwin-x86_64.zip -d /opt/dfadmin"
+
+- name: Raname zip file
+  command: "mv /opt/dfadmin/android-ndk-r10e /opt/dfadmin/ndk"
 
 - name: Configure Android SDK paths
   action: lineinfile dest=/home/dfadmin/.bashrc line="{{ item }}"
