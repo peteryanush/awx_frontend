@@ -18,7 +18,6 @@
     src: /tmp/android-ndk-r10e.zip
     dest: /opt/dfadmin/android-sdk-linux/ndk
     remote_src: yes
-    copy: no 
 
 - name: Configure Android SDK paths
   action: lineinfile dest=/home/dfadmin/.bashrc line="{{ item }}"
