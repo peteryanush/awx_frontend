@@ -19,10 +19,7 @@
     state: directory
 
 - name: Unpack Android NDK
-  unarchive:
-    src: /tmp/android-ndk-r10e.zip
-    dest: /opt/dfadmin/android-sdk-linux/ndk
-    remote_src: yes
+  command: "unzip /tmp/android-ndk-r10e-darwin-x86_64.zip -d /opt/dfadmin/android-sdk-linux/ndk"
 
 - name: Configure Android SDK paths
   action: lineinfile dest=/home/dfadmin/.bashrc line="{{ item }}"
