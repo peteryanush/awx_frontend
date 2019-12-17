@@ -5,9 +5,11 @@
   vars:
     addr_host: "dforce-web.drakontas.com"
     repo_folder: /opt/dfadmin/dforce-web/
+    repo_folder_mob: /opt/dfadmin/dforce-mobile/
     live_folder: /opt/dfadmin/dforce-web/build/
     live_host: site20-app1.drakontas.com
     git_repo: git@github.com:drakontas-llc/dforce-web.git
+    git_repo_mob: git@github.com:drakontas-llc/dforce-mobile.git
     download_url: http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
     download_folder: /tmp
     java_version_path: jdk1.8.0_131
@@ -130,6 +132,15 @@
       mode: u=rwx,g=rx,o=rx
     become: yes
 
+  - name: Create
+    file:
+      path: /opt/dfadmin/dforce-mobile/
+      state: directory
+      owner: dfadmin
+      group: dfadmin
+      mode: u=rwx,g=rx,o=rx
+    become: yes
+
   - name: Transfer the script
     copy:
       content: "{{ ansible_pub }}"
@@ -141,6 +152,15 @@
     git:
       repo: "{{ git_repo }}"
       dest: /opt/dfadmin/dforce-web
+      accept_hostkey: yes
+      key_file: /home/dfadmin/.ssh/ansible
+      version: dev
+    become_user: dfadmin
+
+  - name: Get stuff from git
+    git:
+      repo: "{{ git_repo_mob }}"
+      dest: /opt/dfadmin/dforce-mobile
       accept_hostkey: yes
       key_file: /home/dfadmin/.ssh/ansible
       version: dev
@@ -178,3 +198,11 @@
       become: yes
       include: install_android-ndk.yml
       
+    - name: Install dependencies APK
+      yarn:
+        path: "{{ repo_folder_mob }}"
+
+    - name: Build project APK
+      command: yarn run android-release
+      args:
+        chdir: "{{ repo_folder_mob }}"
