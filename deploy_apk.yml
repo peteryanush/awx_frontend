@@ -163,7 +163,7 @@
       dest: /opt/dfadmin/dforce-mobile
       accept_hostkey: yes
       key_file: /home/dfadmin/.ssh/ansible
-      version: dev
+      version: develop
     become_user: dfadmin
 
   - name: Register NodeJS distribution
