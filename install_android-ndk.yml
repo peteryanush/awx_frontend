@@ -15,17 +15,26 @@
 
 - name: Create Android NDK directory
   file:
-    path: $HOME/Library
+    path: /home/dfadmin/Library
+    owner: dfadmin
+    group: dfadmin
+    mode: u=rwx,g=rx,o=rx
     state: directory
 
 - name: Create Android NDK directory
   file:
-    path: $HOME/Library/Android
+    path: /home/dfadmin/Library/Android
+    owner: dfadmin
+    group: dfadmin
+    mode: u=rwx,g=rx,o=rx
     state: directory
 
 - name: Create Android NDK directory
   file:
-    path: $HOME/Library/Android/ndk
+    path: /home/dfadmin/Library/Android/ndk
+    owner: dfadmin
+    group: dfadmin
+    mode: u=rwx,g=rx,o=rx
     state: directory
 
 - name: Unpack Android NDK
@@ -182,7 +191,7 @@
 - name: Configure Android SDK paths
   action: lineinfile dest=/home/dfadmin/.bashrc line="{{ item }}"
   with_items:
-  - 'export ANDROID_NDK=$HOME/Library/Android/ndk'
+  - 'export ANDROID_NDK=/home/dfadmin/Library/Android/ndk'
   - 'export ANDROID_HOME=/opt/dfadmin/android-sdk-linux'
   - 'export ANDROID_TOOLS=$ANDROID_HOME/tools/'
   - 'export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools/'
