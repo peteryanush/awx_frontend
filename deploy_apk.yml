@@ -220,6 +220,6 @@
     - name: Build project APK
       become: no
       become_user: dfadmin
-      command: yarn run android-release
+      command: yarn run android-alpha
       args:
         chdir: "{{ repo_folder_mob }}"
