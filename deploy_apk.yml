@@ -185,7 +185,7 @@
     - { role: android-sdk }
 
   post_tasks:
-
+    
     - name: Install dependencies
       become: no
       become_user: dfadmin
@@ -201,6 +201,12 @@
     - name: Install Android NDK
       become: yes
       include: install_android-ndk.yml
+
+    - name: Accept license build-tools;28.0.3
+      command: yes | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;28.0.3"
+
+    - name: Accept license platforms;android-28
+      command: yes | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-28"
       
     - name: Install dependencies APK
       become: no
