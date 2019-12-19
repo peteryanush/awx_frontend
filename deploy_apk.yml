@@ -207,7 +207,10 @@
 
     - name: Accept license platforms;android-28
       shell: yes | $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-28"
-      
+     
+    - name: On Linux (or Mac) we have a max number of system watchers we can place at an IO level
+      shell: echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+ 
     - name: Install dependencies APK
       become: no
       become_user: dfadmin
