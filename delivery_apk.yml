@@ -24,7 +24,6 @@
   tasks:
 
     - name: Copy file to S3 bucket
-      gather_facts: false
       aws_s3: 
           object: "/apk-alpha/df_alpha_51001_1854.apk"
           src: "/opt/dfadmin/dforce-mobile/android/app/build/outputs/apk/alpha/release/df_alpha_51001_1854.apk"
@@ -34,3 +33,4 @@
           overwrite: no
       ignore_errors: True
       no_log: True
+      gather_facts: False
