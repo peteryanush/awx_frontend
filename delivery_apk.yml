@@ -2,6 +2,7 @@
 - name: install WEB server
   hosts: all
   become: yes
+  gather_facts: False
   vars:
 
     aws_access_key: !vault |
@@ -33,4 +34,3 @@
           overwrite: no
       ignore_errors: True
       no_log: True
-      gather_facts: False
