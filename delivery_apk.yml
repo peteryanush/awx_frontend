@@ -31,4 +31,4 @@
           aws_secret_key: "{{ aws_secret_key }}"
           mode: put
           overwrite: no
-      no_log: true
+      no_log: yes
