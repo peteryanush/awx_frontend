@@ -26,7 +26,7 @@
 
     - name: Copy file to S3 bucket
       aws_s3:
-          bucket: "drakontas-download" 
+          bucket: "ova-import-vm" 
           object: "s3://apk-alpha/df_alpha_51001_1854.apk"
           src: "/opt/dfadmin/dforce-mobile/android/app/build/outputs/apk/alpha/release/df_alpha_51001_1854.apk"
           aws_access_key: "{{ aws_access_key }}"
