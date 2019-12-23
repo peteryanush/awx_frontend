@@ -27,6 +27,7 @@
       yum: 
         name:
           - https://centos7.iuscommunity.org/ius-release.rpm
+          - epel-release
           - python 
           - python-devel
           - python-pip
