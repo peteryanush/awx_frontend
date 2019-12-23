@@ -25,4 +25,4 @@
   tasks:
 
     - name: Copy file to S3 bucket
-      aws_s3: aws_access_key={{ aws_access_key }} aws_secret_key={{ aws_secret_key }} bucket=drakontas-download object=/apk-alpha/df_alpha_51001_1854.apk src=/opt/dfadmin/dforce-mobile/android/app/build/outputs/apk/alpha/release/df_alpha_51001_1854.apk mode=put no_log=True
+      aws_s3: aws_access_key={{ aws_access_key }} aws_secret_key={{ aws_secret_key }} bucket=drakontas-download.s3.amazonaws.com object=/apk-alpha/df_alpha_51001_1854.apk src=/opt/dfadmin/dforce-mobile/android/app/build/outputs/apk/alpha/release/df_alpha_51001_1854.apk mode=put no_log=True
