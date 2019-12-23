@@ -36,4 +36,4 @@
           rgw: True
           encrypt: false
       ignore_errors: True
-      no_log: True
+      no_log: false
