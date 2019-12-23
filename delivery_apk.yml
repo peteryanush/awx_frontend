@@ -27,7 +27,6 @@
     - name: Ensure boto and boto3 modules are installed
       pip:
          name: botocore
-         executable: pip-3.6
 
     - name: Copy file to S3 bucket
       aws_s3:
