@@ -39,7 +39,7 @@
           dest: "apk-alpha"
           validate_certs: false
           mode: put
-          rgw: True
+#          rgw: True
           encrypt: false
           debug_botocore_endpoint_logs: True
       ignore_errors: True
