@@ -1,6 +1,7 @@
 ---
 - name: Deploy apk-server
   hosts: all
+  become: no
   become_user: dfadmin
   gather_facts: False
   tasks:
