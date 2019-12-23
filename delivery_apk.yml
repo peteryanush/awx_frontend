@@ -2,7 +2,7 @@
 - name: install WEB server
   hosts: all
   become: yes
-#  gather_facts: False
+  gather_facts: False
   vars:
 
     aws_access_key: !vault |
@@ -22,7 +22,10 @@
            38626261346131303061616438306265346164313834646164313132316632363731306236393432
            3530653630303661666665633064303437316663636439653539
 
-  tasks:
+  tasks: 
+    - name: Install python for s3 delivery
+      yum: python, python-devel, python-pip
+      state: present
 
     - name: Ensure boto and boto3 modules are installed
       pip:
@@ -31,15 +34,13 @@
     - name: Copy file to S3 bucket
       aws_s3:
           bucket: "ova-import-vm" 
-          object: "df_alpha_51001_1854.apk"
+          object: "apk-alpha/df_alpha_51001_1854.apk"
           src: "/opt/dfadmin/dforce-mobile/android/app/build/outputs/apk/alpha/release/df_alpha_51001_1854.apk"
           aws_access_key: "{{ aws_access_key }}"
           aws_secret_key: "{{ aws_secret_key }}"
-#          s3_url: "https://s3.console.aws.amazon.com"
-          dest: "apk-alpha"
+#          dest: "apk-alpha"
           validate_certs: false
           mode: put
-#          rgw: True
           encrypt: false
           debug_botocore_endpoint_logs: True
       ignore_errors: True
