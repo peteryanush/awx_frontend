@@ -27,12 +27,13 @@
     - name: Copy file to S3 bucket
       aws_s3:
           bucket: "ova-import-vm" 
-          object: "apk-alpha/df_alpha_51001_1854.apk"
+          object: "df_alpha_51001_1854.apk"
           src: "/opt/dfadmin/dforce-mobile/android/app/build/outputs/apk/alpha/release/df_alpha_51001_1854.apk"
           aws_access_key: "{{ aws_access_key }}"
           aws_secret_key: "{{ aws_secret_key }}"
+          s3_url: "https://s3.console.aws.amazon.com"
           mode: put
-          permission: "public-read"
-          overwrite: no
+          rgw: True
+          encrypt: false
       ignore_errors: True
-      no_log: False
+      no_log: True
