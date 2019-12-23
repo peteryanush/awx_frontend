@@ -43,4 +43,4 @@
           encrypt: false
           debug_botocore_endpoint_logs: True
       ignore_errors: True
-      no_log: false
+      no_log: true
