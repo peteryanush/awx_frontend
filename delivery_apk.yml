@@ -24,12 +24,18 @@
 
   tasks: 
     - name: Install python for s3 delivery
-      yum: python, python-devel, python-pip
-      state: present
+      yum: 
+        name:
+          - python 
+          - python-devel
+          - python-pip
+        state: present
 
     - name: Ensure boto and boto3 modules are installed
       pip:
-         name: botocore, boto3
+         name: 
+           - botocore
+           -  boto3
 
     - name: Copy file to S3 bucket
       aws_s3:
