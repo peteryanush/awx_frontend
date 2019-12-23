@@ -26,6 +26,7 @@
     - name: Install python for s3 delivery
       yum: 
         name:
+          - https://centos7.iuscommunity.org/ius-release.rpm
           - python 
           - python-devel
           - python-pip
@@ -35,7 +36,7 @@
       pip:
          name: 
            - botocore
-           -  boto3
+           - boto3
 
     - name: Copy file to S3 bucket
       aws_s3:
