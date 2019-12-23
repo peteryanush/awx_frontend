@@ -23,12 +23,10 @@
            3530653630303661666665633064303437316663636439653539
 
   tasks:
-
-    - name: Add repository
-      yum_repository:
-        name: epel
-        description: EPEL YUM repo
-        baseurl: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    - name: install  epel-release
+      yum:
+        name:
+          - epel-release
 
     - name: Install python for s3 delivery
       yum: 
