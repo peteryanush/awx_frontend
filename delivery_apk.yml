@@ -2,7 +2,7 @@
 - name: install WEB server
   hosts: all
   become: yes
-  gather_facts: False
+#  gather_facts: False
   vars:
 
     aws_access_key: !vault |
@@ -31,9 +31,12 @@
           src: "/opt/dfadmin/dforce-mobile/android/app/build/outputs/apk/alpha/release/df_alpha_51001_1854.apk"
           aws_access_key: "{{ aws_access_key }}"
           aws_secret_key: "{{ aws_secret_key }}"
-          s3_url: "https://s3.console.aws.amazon.com"
+#          s3_url: "https://s3.console.aws.amazon.com"
+          dest: "apk-alpha"
+          validate_certs: false
           mode: put
           rgw: True
           encrypt: false
+          debug_botocore_endpoint_logs: True
       ignore_errors: True
       no_log: false
