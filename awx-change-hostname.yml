@@ -33,3 +33,4 @@
   assert:
     that:
       ansible_fqdn == inventory_hostname
+  ignore_errors: True
