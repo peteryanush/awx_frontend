@@ -26,12 +26,11 @@
     - name: Install python for s3 delivery
       yum: 
         name:
-          - https://centos7.iuscommunity.org/ius-release.rpm
           - epel-release
           - python 
           - python-devel
           - python-pip
-        state: present
+#        state: present
 
     - name: Ensure boto and boto3 modules are installed
       pip:
