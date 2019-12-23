@@ -14,4 +14,4 @@
     include: awx-change-hostname.yml
     async: 0
     poll: 0
-    ignore_errors: True
+  ignore_errors: True
