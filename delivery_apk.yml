@@ -29,13 +29,15 @@
         name: epel
         description: EPEL YUM repo
         baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
- 
+      lock_timeout: 180
+
     - name: Install python for s3 delivery
       yum: 
         name:
           - python 
           - python-devel
           - python-pip
+        lock_timeout: 180
         state: present
 
     - name: Ensure boto and boto3 modules are installed
