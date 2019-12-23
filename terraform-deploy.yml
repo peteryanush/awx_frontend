@@ -6,5 +6,7 @@
   gather_facts: False
   tasks:
   - name: Deploy Terraform Instance
-    command: /home/dfadmin/terraform_dev_migration/terraform_APK/terraform apply --auto-approve
+    command: terraform apply --auto-approve
+        args:
+          chdir: /home/dfadmin/terraform_dev_migration/terraform_APK/
     ignore_errors: yes
