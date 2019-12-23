@@ -4,23 +4,6 @@
   become: yes
   gather_facts: False
   tasks:
-  - name: Executing Terraform
-    terraform:
-       project_path: '/home/dfadmin/terraform_dev_migration/terraform_APK'
-       lock: true
-       force_init: yes
-    register: tf_output
-
-  - name: Print Outputs
-    debug:
-      var: tf_output
-
-  - name: Deploying the Infra
-    add_host:
-      name: "df-apk"
-      groups: just_created
-      ansible_user: root
-
-  - name: Demonstrating that Ansible can access Terraform variables if they exist in tf_output
-    debug: msg="This is a Terraform variable tf_output.outputs.address.value --> {{ tf_output.outputs.address.value }}"
+  - name: Deploy Terraform Instance
+       shell: '/home/dfadmin/terraform_dev_migration/terraform_APK/terraform apply --auto-approve'
     ignore_errors: yes
