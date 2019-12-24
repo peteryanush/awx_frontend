@@ -6,6 +6,6 @@
   tasks:
     - name: Run script
       shell: sudo /opt/drakontas/dforce/bin/dforce-backup-status
-            register: backup
+      register: backup
 
       debug: var=backup.stdout_lines
