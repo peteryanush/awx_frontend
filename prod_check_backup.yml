@@ -8,5 +8,4 @@
   - name: Run script
     command: sudo /opt/drakontas/dforce/bin/dforce-backup-status
     register: backup
-
-    debug: var=backup.stdout_lines
+  - debug: var=backup.stdout_lines
