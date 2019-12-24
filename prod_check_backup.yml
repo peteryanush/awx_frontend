@@ -2,7 +2,10 @@
 - name: Check backup on Production instance
   hosts: all
   become_user: dfadmin
-  gather_facts: no
+  gather_facts: False
   tasks:
-  - name: Run scrit
-    shell: sudo /opt/drakontas/dforce/bin/dforce-backup-status
+    - name: Run script
+      shell: sudo /opt/drakontas/dforce/bin/dforce-backup-status
+            register: backup
+
+      debug: var=backup.stdout_lines
