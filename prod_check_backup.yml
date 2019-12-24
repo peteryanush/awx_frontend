@@ -1,11 +1,13 @@
 ---
 - name: Check backup on Production instance
+- name: Deploy apk-server
   hosts: all
+  become: no
   become_user: dfadmin
   gather_facts: False
   tasks:
-    - name: Run script
-      shell: sudo /opt/drakontas/dforce/bin/dforce-backup-status
-      register: backup
+  - name: Run script
+    shell: sudo /opt/drakontas/dforce/bin/dforce-backup-status
+    register: backup
 
-      debug: var=backup.stdout_lines
+    debug: var=backup.stdout_lines
