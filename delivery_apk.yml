@@ -42,13 +42,18 @@
            - botocore
            - boto3
 
+    - name: Find /var/log files equal or greater than 10 megabytes ending with .old or .log.gz
+      find:
+        paths: /opt/dfadmin/dforce-mobile/android/app/build/outputs/apk/alpha/release/
+        patterns: '*.apk'
+        size: 10m
+      register: apk_out
+
     - name: Copy file to S3 bucket
       aws_s3:
           bucket: "ova-import-vm" 
           object: "{{ repo_mob_branch }}/"
-          file_root: "/opt/dfadmin/dforce-mobile/android/app/build/outputs/apk/alpha/release/"
-          include: "*.apk"
-          exclude: "*.json"
+          src: "/opt/dfadmin/dforce-mobile/android/app/build/outputs/apk/alpha/release/{{ apk_out.stdout_lines }}"
           aws_access_key: "{{ aws_access_key }}"
           aws_secret_key: "{{ aws_secret_key }}"
 #          dest: "apk-alpha"
