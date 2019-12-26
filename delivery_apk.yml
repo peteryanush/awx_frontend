@@ -48,6 +48,8 @@
         patterns: '*.apk'
         size: 10m
       register: apk_out
+    - debug:
+        var: apk_out.stdout_lines
 
     - name: Copy file to S3 bucket
       aws_s3:
