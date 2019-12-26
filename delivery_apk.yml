@@ -49,13 +49,13 @@
         size: 10m
       register: apk_out
     - debug:
-        msg: "{{ apk_out.files[0].path }}"
+        msg: "{{ apk_out.stdout_lines }}"
        
 
     - name: Copy file to S3 bucket
       aws_s3:
           bucket: "ova-import-vm" 
-          object: "{{ repo_mob_branch }}/{{ apk_out.files[0] }}"
+          object: "{{ repo_mob_branch }}/{{ apk_out.files }}"
           src: "{{ apk_out.files[0].path }}"
           aws_access_key: "{{ aws_access_key }}"
           aws_secret_key: "{{ aws_secret_key }}"
