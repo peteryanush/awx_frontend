@@ -49,13 +49,14 @@
         size: 10m
       register: apk_out
     - debug:
-        var: path.stdout_lines
+        msg: "{{ item.path }}"
+       
 
     - name: Copy file to S3 bucket
       aws_s3:
           bucket: "ova-import-vm" 
           object: "{{ repo_mob_branch }}/"
-          src: "/opt/dfadmin/dforce-mobile/android/app/build/outputs/apk/alpha/release/{{ apk_out.path }}"
+          src: "{{ item.path }}"
           aws_access_key: "{{ aws_access_key }}"
           aws_secret_key: "{{ aws_secret_key }}"
 #          dest: "apk-alpha"
