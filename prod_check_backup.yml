@@ -5,7 +5,7 @@
   become_user: dfadmin
   gather_facts: False
   tasks:
-  - name: Run script
+  - name: Run script on all machines
     command: sudo /opt/drakontas/dforce/bin/dforce-backup-status
     register: backup
   - debug: var=backup.stdout_lines
