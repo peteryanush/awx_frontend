@@ -49,7 +49,7 @@
         size: 10m
       register: apk_out
     - debug:
-        msg: "{{ apk_out.files | map(attribute='path') | map('basename') | list }}"
+        msg: "{{ apk_out.files | map(attribute='path') | map('basename') | ''.join(list) }}"
        
 
     - name: Copy file to S3 bucket
