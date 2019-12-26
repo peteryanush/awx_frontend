@@ -46,7 +46,9 @@
       aws_s3:
           bucket: "ova-import-vm" 
           object: "{{ repo_mob_branch }}/df_alpha_*"
-          src: "/opt/dfadmin/dforce-mobile/android/app/build/outputs/apk/alpha/release/df_alpha_*"
+          src: "/opt/dfadmin/dforce-mobile/android/app/build/outputs/apk/alpha/release/"
+          include: "*.apk"
+          exclude: "*.json"
           aws_access_key: "{{ aws_access_key }}"
           aws_secret_key: "{{ aws_secret_key }}"
 #          dest: "apk-alpha"
