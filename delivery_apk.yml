@@ -49,7 +49,7 @@
         size: 10m
       register: apk_out
     - debug:
-        msg: "{{ tower_webhook_payload }}"
+        msg: "{{ tower_webhook_payload.pull_request.head }}"
         
 
     - name: Copy file to S3 bucket
