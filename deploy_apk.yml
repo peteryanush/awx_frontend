@@ -163,7 +163,7 @@
       dest: /opt/dfadmin/dforce-mobile
       accept_hostkey: yes
       key_file: /home/dfadmin/.ssh/ansible
-      version: "{{ tower_webhook_payload.pull_request.head.ref }}"
+      version: "{{ repo_mob_branch }}"
     become_user: dfadmin
 
   - name: Register NodeJS distribution
