@@ -8,5 +8,5 @@
   - name: Deploy Terraform Instance
     command: terraform apply --auto-approve
     args:
-       chdir: /home/dfadmin/terraform_dev_migration/terraform_APK/
+       chdir: /home/dfadmin/terraform_dev_migration/terraform_286
     ignore_errors: yes
