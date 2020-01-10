@@ -9,6 +9,6 @@
   shell: sleep 1; ifdown ifcfg-ens33 && ifup ifcfg-ens33
   args:
     executable: /bin/bash
-  async: 100
+  async: 10
   poll: 0
   become: yes

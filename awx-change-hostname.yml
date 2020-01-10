@@ -7,7 +7,7 @@
 
 - name: restart machine
   command: shutdown -r now "Ansible updates triggered"
-  async: 100
+  async: 10
   poll: 0
   ignore_errors: True
   when:
