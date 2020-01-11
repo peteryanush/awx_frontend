@@ -186,17 +186,17 @@
 
   post_tasks:
     
-    - name: Install dependencies
-      become: no
-      become_user: dfadmin
-      yarn:
-        path: "{{ repo_folder }}"
-    - name: Build project
-      become: no
-      become_user: dfadmin
-      command: yarn build
-      args:
-        chdir: "{{ repo_folder }}"
+#    - name: Install dependencies for WEB
+#      become: no
+#      become_user: dfadmin
+#      yarn:
+#        path: "{{ repo_folder }}"
+#    - name: Build project WEB
+#      become: no
+#      become_user: dfadmin
+#      command: yarn build
+#      args:
+#        chdir: "{{ repo_folder }}"
     
     - name: Install Android NDK
       become: yes
