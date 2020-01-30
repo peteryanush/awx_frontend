@@ -53,17 +53,17 @@
        chdir: /home/dfadmin/darwin_cluster-03-04/site04_2/
     ignore_errors: yes
 
-  - name: Deploy Terraform Instance site04_app3
-    command: terraform apply --auto-approve
-    args:
-       chdir: /home/dfadmin/darwin_cluster-03-04/site04_3/
-    ignore_errors: yes
+#  - name: Deploy Terraform Instance site04_app3
+#    command: terraform apply --auto-approve
+#    args:
+#       chdir: /home/dfadmin/darwin_cluster-03-04/site04_3/
+#    ignore_errors: yes
 
-  - name: Deploy Terraform Instance site04_app4
-    command: terraform apply --auto-approve
-    args:
-       chdir: /home/dfadmin/darwin_cluster-03-04/site04_4/
-    ignore_errors: yes
+#  - name: Deploy Terraform Instance site04_app4
+#    command: terraform apply --auto-approve
+#    args:
+#       chdir: /home/dfadmin/darwin_cluster-03-04/site04_4/
+#    ignore_errors: yes
 
   - name: Deploy Terraform Instance tiebreaker34
     command: terraform apply --auto-approve
