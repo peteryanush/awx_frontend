@@ -1,72 +1,72 @@
 ---
-- name: Deploy apk-server
+- name: Destroy cluster 10-11
   hosts: all
   become: no
   become_user: dfadmin
   gather_facts: False
   tasks:
-  - name: Deploy Terraform Instance site03_DB 
+  - name: Deploy Terraform Instance site10_DB 
     command: terraform destroy --auto-approve
     args:
-       chdir: /home/dfadmin/darwin_cluster-03-04/site03_db/
+       chdir: /home/dfadmin/darwin_cluster-10-11/site10_db/
     ignore_errors: yes
 
-  - name: Deploy Terraform Instance site03_app1
+  - name: Deploy Terraform Instance site10_app1
     command: terraform destroy --auto-approve
     args:
-       chdir: /home/dfadmin/darwin_cluster-03-04/site03_1/
+       chdir: /home/dfadmin/darwin_cluster-10-11/site10_1/
     ignore_errors: yes
 
-  - name: Deploy Terraform Instance site03_app2
+  - name: Deploy Terraform Instance site10_app2
     command: terraform destroy --auto-approve
     args:
-       chdir: /home/dfadmin/darwin_cluster-03-04/site03_2/
+       chdir: /home/dfadmin/darwin_cluster-10-11/site10_2/
     ignore_errors: yes
 
-  - name: Deploy Terraform Instance site03_app3
+  - name: Deploy Terraform Instance site10_app3
     command: terraform destroy --auto-approve
     args:
-       chdir: /home/dfadmin/darwin_cluster-03-04/site03_3/
+       chdir: /home/dfadmin/darwin_cluster-10-11/site10_3/
     ignore_errors: yes
 
-  - name: Deploy Terraform Instance site03_app4
+  - name: Deploy Terraform Instance site10_app4
     command: terraform destroy --auto-approve
     args:
-       chdir: /home/dfadmin/darwin_cluster-03-04/site03_4/
+       chdir: /home/dfadmin/darwin_cluster-10-11/site10_4/
     ignore_errors: yes
 
-  - name: Deploy Terraform Instance site04_DB
+  - name: Deploy Terraform Instance site11_DB
     command: terraform destroy --auto-approve
     args:
-       chdir: /home/dfadmin/darwin_cluster-03-04/site04_db
+       chdir: /home/dfadmin/darwin_cluster-10-11/site11_db
     ignore_errors: yes
 
-  - name: Deploy Terraform Instance site04_app1
+  - name: Deploy Terraform Instance site11_app1
     command: terraform destroy --auto-approve
     args:
-       chdir: /home/dfadmin/darwin_cluster-03-04/site04_1/
+       chdir: /home/dfadmin/darwin_cluster-10-11/site11_1/
     ignore_errors: yes
 
-  - name: Deploy Terraform Instance site04_app2
+  - name: Deploy Terraform Instance site11_app2
     command: terraform destroy --auto-approve
     args:
-       chdir: /home/dfadmin/darwin_cluster-03-04/site04_2/
+       chdir: /home/dfadmin/darwin_cluster-10-11/site11_2/
     ignore_errors: yes
 
-  - name: Deploy Terraform Instance site04_app3
-    command: terraform destroy --auto-approve
-    args:
-       chdir: /home/dfadmin/darwin_cluster-03-04/site04_3/
-    ignore_errors: yes
+#  - name: Deploy Terraform Instance site11_app3
+#    command: terraform destroy --auto-approve
+#    args:
+#       chdir: /home/dfadmin/darwin_cluster-10-11/site11_3/
+#    ignore_errors: yes
 
-  - name: Deploy Terraform Instance site04_app4
-    command: terraform destroy --auto-approve
-    args:
-       chdir: /home/dfadmin/darwin_cluster-03-04/site04_4/
-    ignore_errors: yes
+#  - name: Deploy Terraform Instance site11_app4
+#    command: terraform destroy --auto-approve
+#    args:
+#       chdir: /home/dfadmin/darwin_cluster-10-11/site11_4/
+#    ignore_errors: yes
 
-  - name: Deploy Terraform Instance tiebreaker34
+  - name: Deploy Terraform Instance tiebreaker111
     command: terraform destroy --auto-approve
     args:
-       chdir: /home/dfadmin/darwin_cluster-03-04/tiebreaker34/
+       chdir: /home/dfadmin/darwin_cluster-10-11/tiebreaker111/
     ignore_errors: yes
